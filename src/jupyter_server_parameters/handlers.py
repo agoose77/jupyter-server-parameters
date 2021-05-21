@@ -12,7 +12,7 @@ class ParametersHandler(JupyterHandler):
         redirect = params.pop("redirect", "/lab")
 
         # Send parameter values to server_params
-        server_params = self.settings["server_params"]
+        server_params = self.settings["server_parameters"]
         try:
             await server_params.handle_parameters(params)
         except Exception:

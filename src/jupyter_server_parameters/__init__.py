@@ -8,7 +8,7 @@ def _load_jupyter_server_extension(app):
     """
     This function is called when the extension is loaded.
     """
-    app.web_app.settings["server_params"] = JupyterServerParameters(parent=app)
+    app.web_app.settings["server_parameters"] = JupyterServerParameters(parent=app)
 
     handlers = [
         (
