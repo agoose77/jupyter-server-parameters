@@ -1,5 +1,5 @@
 from jupyter_server.base.handlers import JupyterHandler
-from urllib.parse import urljoin
+from jupyter_server.utils import url_path_join
 import tornado.web
 
 
@@ -19,4 +19,6 @@ class ParametersHandler(JupyterHandler):
             self.log.exception("Unable to handle parameters")
 
         # Perform redirect
-        self.redirect(urljoin(self.base_url, redirect))
+        destination = url_path_join(self.base_url, redirect)
+        self.log.debug(f"Redirecting to {destination}")
+        self.redirect(destination)
